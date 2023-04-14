@@ -30,5 +30,27 @@ make mangopi_mq_quad_defconfig
 make
 ```
 
+### Test method
+- Bluetooth Test
+```
+bluetoothctl                # Open bluetooth console
+[bluetooth]# power on       # Open bluetooth power
+[bluetooth]# scan on        # Start scanning peripheral devices
+[bluetooth]# devices        # Lists the scanned peripherals
+[bluetooth]# exit           # Exit bluetooth console
+```
+- HDMI Audio test
+```
+# Configure HDMI audio
+amixer -c 1 set 'I2S1 Src Select' 'APBIF_TXDIF0'
+amixer -c 1 set 'I2S1OUT' on
+
+# The -D hw:2,0 command must be run first, before you can use audio normally. (You only need to do this once per startup)
+aplay test.wav -D hw:2,0
+
+# Play music
+aplay test.wav -D hw:1,0
+```
+
 ### Reference
 https://github.com/open-cores/mangguo-h616-armbian
