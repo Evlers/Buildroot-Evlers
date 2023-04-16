@@ -7,7 +7,7 @@ Removes all original boards and adds new board support
 Note: Click the corresponding board to view the peripheral support or descriptions.
 |   **Manufacturer**    |                   **Board**                       |           **defconfig**           |             **Describe**                  |
 |-----------------------|---------------------------------------------------|-----------------------------------|-------------------------------------------|
-|   MangoPI             |   [MQ-Quad](./board/mangopi_mq-quad/README.md)    |   mangopi_mq_quad_defconfig       |   Base on Allwinner H616                  |
+|   MangoPI             |   [MQ-Quad](./board/mangopi/mq-quad/README.md)    |   mangopi_mq_quad_defconfig       |   Base on Allwinner H616                  |
 |   MangoPI             |   MQ-Dual                                         |   ~~mangopi_mq_dual_defconfig~~   |   Base on Allwinner T113-S3               |
 |   MangoPI             |   R3                                              |   ~~mangopi_r3_defconfig~~        |   Base on Allwinner F1C200s               |
 |   Alientek            |   STM32MP157                                      |   ~~alientek_mp157_defconfig~~    |   Base on STMicroelectronics STM32MP157   |
@@ -39,16 +39,17 @@ MangoPI MQ-Quad board example base on Allwinner H616:
     │       │   ├── linux                           # patch for linux kernel
     │       │   └── uboot                           # patch for u-boot
     │       └── rootfs                              # The rootfs for the chip (overwrite)
-    └── mangopi_mq-quad                             # The configuration of the MangoPI MQ-Quad board
-        ├── boot.cmd                                # u-boot command configuration of the boot kernel
-        ├── configs                                 # The board configuration file for linux and u-boot
-        │   ├── linux_defconfig                     # Linux kernel config file
-        │   └── uboot_defconfig                     # u-boot config file
-        ├── devicetree                              # The device tree for the board
-        │   ├── linux                               # device tree for linux
-        │   └── uboot                               # device tree for u-boot
-        ├── README.md                               # The description of the board
-        └── rootfs                                  # The rootfs for the board (overwrite)
+    └── mangopi                                     # The configuration of the MangoPI series board
+        └── mq-quad                                 # The configuration of the MangoPI MQ-Quad board
+            ├── boot.cmd                            # u-boot command configuration of the boot kernel
+            ├── configs                             # The board configuration file for linux and u-boot
+            │   ├── linux_defconfig                 # Linux kernel config file
+            │   └── uboot_defconfig                 # u-boot config file
+            ├── devicetree                          # The device tree for the board
+            │   ├── linux                           # device tree for linux
+            │   └── uboot                           # device tree for u-boot
+            ├── README.md                           # The description of the board
+            └── rootfs                              # The rootfs for the board (overwrite)
 ```
 
 ### About buildroot

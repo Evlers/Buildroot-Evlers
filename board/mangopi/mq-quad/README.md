@@ -1,7 +1,7 @@
 ## MangoPI MQ-Quad board (Allwinner H616 chip)
 
 ### Direction for use
-- Modify the `board/mangopi_mq-quad/rootfs/etc/wpa_supplicant/wpa_supplicant-wlan0.conf` file, Set the WiFi ssid and password
+- Modify the `board/mangopi/mq-quad/rootfs/etc/wpa_supplicant/wpa_supplicant-wlan0.conf` file, Set the WiFi ssid and password
 - Using `systemctrl start wpa_supplicant@wlan0` command to connect Wifi
 - Using `systemctrl enable wpa_supplicant@wlan0` Automatic startup connection
 - After powering on the board, you can connect to the console through the analog serial port of the OTG typec port
