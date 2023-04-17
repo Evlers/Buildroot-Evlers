@@ -10,7 +10,7 @@
 ### Peripheral support
 | **Peripheral** |               **Describe**               |
 |----------------|------------------------------------------|
-|   RTL8189FS    | WiFi/BT (Bluetooth is not supported yet) |
+|   RTL8189FS    | Realtek WiFi modules                     |
 |   USB Host     | 1 typec host                             |
 |   USB OTG      | 1 typec otg                              |
 |     UART       | uart1 to uart5                           |
