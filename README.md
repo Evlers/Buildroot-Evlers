@@ -28,9 +28,6 @@ MangoPI MQ-Quad board example base on Allwinner H616:
 ├── configs                                         # buildroot configuration for each board
 └── board                                           # Board or chip file
     ├── allwinner                                   # The configuration of the Allwinner chip
-    │   ├── generic                                 # Generic file
-    │   │   ├── genimage_sdcard.cfg                 # Configuration for generating TF card images files
-    │   │   └── post-build.sh                       # A script to execute after compiling
     │   └── H616                                    # Allwinner H616 chip configs
     │       ├── devicetree                          # The device tree for the chip
     │       │   ├── linux                           # device tree for linux
@@ -38,7 +35,10 @@ MangoPI MQ-Quad board example base on Allwinner H616:
     │       ├── patches                             # The patch for the chip
     │       │   ├── linux                           # patch for linux kernel
     │       │   └── uboot                           # patch for u-boot
-    │       └── rootfs                              # The rootfs for the chip (overwrite)
+    │       ├── rootfs                              # The rootfs for the chip (overwrite)
+    |       └── scripts                             # Script used to create image files
+    |           ├── genimage_sdcard.cfg             # Configuration for generating TF card images files
+    |           └── post-build.sh                   # A script to execute after compiling
     └── mangopi                                     # The configuration of the MangoPI series board
         └── mq-quad                                 # The configuration of the MangoPI MQ-Quad board
             ├── boot.cmd                            # u-boot command configuration of the boot kernel
