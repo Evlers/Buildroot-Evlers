@@ -20,6 +20,8 @@ make mangopi_mq_quad_defconfig
 
 # Build and pack to output/images
 make 
+
+# Default password of the image is 123456
 ```
 
 ### Directory structure
