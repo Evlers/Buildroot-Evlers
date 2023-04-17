@@ -14,13 +14,14 @@
 	aliases {
 		ethernet0 = &rtl8189fs;
 		mmc0 = &mmc0;
+		serial0 = &uart0;
 		serial1 = &uart1;
 		serial3 = &uart3;
 		serial5 = &uart5;
 	};
 
 	chosen {
-		stdout-path = "serial3:115200n8";
+		stdout-path = "serial0:115200n8";
 		// bootargs = "mem=128M cma=72M root=/dev/mmcblk0p2 init=/sbin/init rootwait earlyprintk=sunxi-uart,0x02501400 console=tty0 console=ttyS5,115200";
 		// bootargs = "mem=128M cma=64M root=/dev/mmcblk0p2 init=/sbin/init rootwait console=ttyS5,115200 earlyprintk=sunxi-uart,0x02501400";
 	};
@@ -191,6 +192,12 @@
 			function = "clk";
 	};
 
+};
+
+&uart0 {
+	pinctrl-0 = <&uart0_pe2_pins>;
+	pinctrl-names = "default";
+	status = "okay";
 };
 
 &uart1 {

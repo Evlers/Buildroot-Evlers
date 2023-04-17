@@ -18,12 +18,13 @@
 	compatible = "widora,mangopi-mq-r-t113", "allwinner,sun8i-t113s";
 
 	aliases {
+		serial0 = &uart0;
 		serial3 = &uart3;
 		ethernet0 = &rtl8189ftv;
 	};
 
 	chosen {
-		stdout-path = "serial3:115200n8";
+		stdout-path = "serial0:115200n8";
 	};
 
 	leds {
@@ -131,6 +132,12 @@
 	vcc-pe-supply = <&reg_avdd2v8>;
 	vcc-pf-supply = <&reg_3v3>;
 	vcc-pg-supply = <&reg_3v3>;
+};
+
+&uart0 {
+	pinctrl-names = "default";
+	pinctrl-0 = <&uart0_pe2_pins>;
+	status = "okay";
 };
 
 &uart3 {
