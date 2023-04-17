@@ -1,0 +1,40 @@
+#!/bin/sh
+#
+# wlan0        Starts WiFi.
+#
+
+start() {
+        printf "Starting WiFi: "
+        ifconfig wlan0 up
+        wpa_supplicant -Dnl80211 -iwlan0 -c /etc/wpa_supplicant.conf -B
+        udhcpc -b -i wlan0 -R
+        [ $? -eq 0 ] && echo "OK" || echo "ERROR"
+}
+stop() {
+        printf "Stopping WiFi: "
+        killall udhcpc
+        killall wpa_supplicant
+	ifconfig wlan0 down
+        [ $? -eq 0 ] && echo "OK" || echo "ERROR"
+}
+restart() {
+        stop
+        start
+}
+
+case "$1" in
+  start)
+        start
+        ;;
+  stop)
+        stop
+        ;;
+  restart|reload)
+        restart
+        ;;
+  *)
+        echo "Usage: $0 {start|stop|restart}"
+        exit 1
+esac
+
+exit $?
