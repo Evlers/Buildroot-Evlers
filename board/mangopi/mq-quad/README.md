@@ -51,6 +51,13 @@ aplay test.wav -D hw:2,0
 # Play music
 aplay test.wav -D hw:1,0
 ```
+- GPU Test
+```
+# Perform the following command on the terminal to start scoring (Insert the HDMI screen first)
+glmark2-es2-drm
+
+# Test images can be seen on HDMI while running
+```
 
 ### Reference
 https://github.com/open-cores/mangguo-h616-armbian
