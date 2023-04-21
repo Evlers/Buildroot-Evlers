@@ -114,6 +114,14 @@
 		pinctrl-names = "default";
 	};
 
+	panel {
+		compatible = "bananapi,s070wv20-ct16", "simple-panel";
+		port {
+			panel_input: endpoint {
+				remote-endpoint = <&tcon_lcd0_out_panel>;
+			};
+		};
+	};
 };
 
 &reg_aldo {
@@ -138,26 +146,39 @@
 	status = "okay";
 };
 
-&dsi {
-	pinctrl-0 = <&dsi_4lane_pins>;
+&tcon_lcd0 {
 	pinctrl-names = "default";
-	status = "disabled";
+	pinctrl-0 = <&lcd_rgb666_pins>;
+	status = "okay";
+};
 
-	panel: panel@0 {
+&tcon_lcd0_out {
+	tcon_lcd0_out_panel: endpoint@0 {
 		reg = <0>;
-		compatible = "lg,lh500wx1-sd03";
-		pinctrl-names = "default";
-/*
-		pinctrl-0 = <&panel_pin>;
-
-		port {
-				panel_in: endpoint {
-						remote-endpoint = <&dsi0_out>;
-				};
-		};
-*/
+		remote-endpoint = <&panel_input>;
 	};
 };
+
+// &dsi {
+// 	pinctrl-0 = <&dsi_4lane_pins>;
+// 	pinctrl-names = "default";
+// 	status = "disabled";
+
+// 	panel: panel@0 {
+// 		reg = <0>;
+// 		compatible = "lg,lh500wx1-sd03";
+// 		pinctrl-names = "default";
+// /*
+// 		pinctrl-0 = <&panel_pin>;
+
+// 		port {
+// 				panel_in: endpoint {
+// 						remote-endpoint = <&dsi0_out>;
+// 				};
+// 		};
+// */
+// 	};
+// };
 
 &pio {
 
@@ -231,14 +252,16 @@
 	pinctrl-names = "default";
 	status = "okay";
 
-	gt911: touchscreen@28 {
+	gt911@5d {
 		compatible = "goodix,gt911";
-		reg = <0x28>;
+		reg = <0x5d>;
 		interrupt-parent = <&pio>;
-		interrupts = <2 3 IRQ_TYPE_EDGE_FALLING>;
-		irq-gpios = <&pio 2 3 GPIO_ACTIVE_HIGH>;
-		reset-gpios = <&pio 2 2 GPIO_ACTIVE_HIGH>;
-		touchscreen-swapped-x-y;
+		interrupts = <1 3 IRQ_TYPE_EDGE_FALLING>;
+
+		irq-gpios = <&pio 1 3 GPIO_ACTIVE_HIGH>;
+		reset-gpios = <&pio 1 2 GPIO_ACTIVE_HIGH>;
+
+		VDD-supply = <&reg_vcc_3v3>;
 	};
 };
 

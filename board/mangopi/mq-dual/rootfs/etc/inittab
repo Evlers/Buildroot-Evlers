@@ -34,6 +34,9 @@ console::respawn:/sbin/getty -L  console 0 vt100 # GENERIC_SERIAL
 # Put a getty on the USB Serial
 ttyGS0::respawn:/sbin/getty -L  ttyGS0 0 vt100 
 
+# Put a getty on the display
+tty0::respawn:/sbin/getty -L   tty0 0 vt100
+
 # Stuff to do for the 3-finger salute
 #::ctrlaltdel:/sbin/reboot
 
