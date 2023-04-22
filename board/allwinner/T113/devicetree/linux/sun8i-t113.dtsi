@@ -1091,19 +1091,19 @@
 			#phy-cells = <0>;
 		};
 
-                tve: tv-encoder@5604000 {
-                        compatible = "allwinner,sun4i-a10-tv-encoder";
-                        reg = <0x5604000 0x1000>;
-                        clocks = <&ccu CLK_TVE>;
-                        resets = <&ccu RST_BUS_TVE>;
-                        status = "okay";
+		tve: tv-encoder@5604000 {
+			compatible = "allwinner,sun4i-a10-tv-encoder";
+			reg = <0x5604000 0x1000>;
+			clocks = <&ccu CLK_TVE>;
+			resets = <&ccu RST_BUS_TVE>;
+			status = "disabled";
 
 			port {
 				tve_in_tcon_tv0: endpoint {
 					remote-endpoint = <&tcon_tv0_out_tve>;
 				};
 			};
-                };
+		};
 
 		tcon_top: tcon-top@5460000 {
 			compatible = "allwinner,sun20i-d1-tcon-top";
@@ -1238,6 +1238,7 @@
 			clock-names = "ahb", "tcon-ch1";
 			resets = <&ccu RST_BUS_TCON_TV>;
 			reset-names = "lcd";
+			status = "disabled";
 
 			ports {
 				#address-cells = <1>;
