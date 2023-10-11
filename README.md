@@ -9,7 +9,7 @@ Note: Click the corresponding board to view the peripheral support or descriptio
 |-----------------------|---------------------------------------------------|-----------------------------------|-------------------------------------------|
 |   MangoPI             |   [MQ-Quad](./board/mangopi/mq-quad/README.md)    |   mangopi_mq_quad_defconfig       |   Base on Allwinner H616                  |
 |   MangoPI             |   [MQ-Dual](./board/mangopi/mq-dual/README.md)    |   mangopi_mq_dual_defconfig       |   Base on Allwinner T113-S3               |
-|   MangoPI             |   R3                                              |   ~~mangopi_r3_defconfig~~        |   Base on Allwinner F1C200s               |
+|   MangoPI             |   [R3](./board/mangopi/r3/README.md)              |   mangopi_r3_defconfig            |   Base on Allwinner F1C200s               |
 |   Alientek            |   STM32MP157                                      |   ~~alientek_mp157_defconfig~~    |   Base on STMicroelectronics STM32MP157   |
 
 
